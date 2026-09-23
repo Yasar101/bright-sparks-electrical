@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://brightsparkselectrical.co.uk/sitemap.xml
