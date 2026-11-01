@@ -60,3 +60,24 @@ This repository stores the **complete upstream tool/skill source**. It does **no
 ## License and attribution
 
 Scroll World is MIT-licensed. Keep `LICENSE` (copyright (c) 2026 cyw) and the notices in redistributions. Upstream: https://github.com/oso95/scroll-world
+
+## aria2c asset downloader (added 2026-11-01)
+
+Official upstream: https://github.com/aria2/aria2 (the binary is called `aria2c`; the Arch package is `aria2`). Rather than duplicating the downloader's source in the website, use the distribution-maintained package on Omarchy.
+
+Install or verify it on the T480s:
+
+```bash
+bash tools/scroll-world/scripts/setup-aria2c.sh
+aria2c --version
+```
+
+Download an approved direct HTTPS file from a site or generation service:
+
+```bash
+bash tools/scroll-world/scripts/download-assets.sh 'https://example.com/path/to/approved-asset.mp4' 'scene-01.mp4'
+```
+
+Replace the example URL with the real direct-download HTTPS URL. Downloaded files are staged under `~/Downloads/Bright-Sparks/scroll-world/` by default, not committed to the website. They can be resumed with aria2c if the server supports byte ranges. Set `BRIGHT_SPARKS_ASSETS_DIR` to an alternative local staging directory before running the helper if desired.
+
+The scripts do not enable aria2's RPC interface, pull arbitrary dependencies, or deploy anything. Inspect and optimize downloaded files before copying appropriate assets into the production website. Follow providers' licence and usage terms and do not assume paid-media URLs work without authentication.
